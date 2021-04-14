@@ -17,14 +17,14 @@ def generate_urls(url, start_page, end_page):
     return urls
 
 
-# 置入假來源+爬蟲
+# 置入假來源
 def get_resource(url):
     #假來源
     headers = {
         "user-agent" : "Mozilla/5.0 (Windoes NT 10.0; Win64; x64) AppWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36"
         }
     #用requests.get函式爬蟲並回傳 更改headers參數給個假來源以在請求登入網站時假裝真人登入該網站
-    return requests.get(url, headers = headers)
+    return requests.get(url, headers = headers, verify = False)
 
 # 解析
 def parse_html(html_str):
